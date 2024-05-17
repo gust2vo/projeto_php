@@ -19,13 +19,19 @@
         isset($_GET["p"]) ? $page = $_GET["p"] : $page = "home";
         match ($page) {
             "home" => require_once("./view/home.php"),
-            "list" => "",
-            "cad" => "",
+            "prod" => require_once("./view/produto.php"),
+            "cad" => require_once("./view/cadastrar.php"),
+            "carr" => require_once("./view/carrinho.php"),
+            "log" => require_once("./view/login.php"),
+            "sob" => require_once("./view/sobre.php"),
+            "cont" => require_once("./view/contato.php"),
             default => require_once("./view/404.php"),
         }
         ?>
+    </main>
+    <footer>
+        <?php require_once("./footer.php"); ?>
+    </footer>
 </body>
-<?php require_once("./footer.php"); ?>
-</main>
 
 </html>
