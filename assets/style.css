@@ -1,15 +1,22 @@
 body {
-    background-color: black; 
+    background-color: rgb(0, 0, 0); 
     color: white; 
 }
 
-.container-home {
+.container-home,
+.container-produto,
+.container-cadastro,
+.container-login,
+.container-contato,
+.container-sobre,
+.container-recuperar-senha {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-.header-home {
+.header-home,
+.header-produto {
     text-align: center;
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
@@ -20,36 +27,14 @@ body {
     margin-bottom: 20px;
 }
 
-.produto-home {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.produto-item-home {
-    width: 200px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.container-produto {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.header-produto {
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-}
-
+.produto-home,
 .produto {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
+.produto-item-home,
 .produto-item {
     width: 200px;
     margin-bottom: 20px;
@@ -65,7 +50,8 @@ body {
     padding: 10px;
 }
 
-.menu {
+.menu,
+.footer-menu {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -77,7 +63,8 @@ body {
     margin-right: auto; 
 }
 
-.menu li:not(.sob) {
+.menu li:not(.sob),
+.footer-menu li {
     margin-left: 10px; 
 }
 
@@ -91,27 +78,14 @@ body {
     min-height: 100vh; 
 }
 
-.footer-menu {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    text-align: right;
-}
-
-.footer-menu li {
-    display: inline;
-    margin-left: 10px;
-}
-
-.footer-menu li:last-child {
-    margin-left: 0;
-}
-
 .footer .copy {
     text-align: center; 
 }
 
-.container-cadastro {
+.container-cadastro,
+.container-login,
+.container-contato,
+.container-recuperar-senha {
     background-color: #000000;
     padding: 20px;
     border-radius: 10px;
@@ -121,17 +95,27 @@ body {
     margin: 20px auto; 
 }
 
-.container-cadastro h1 {
+.container-cadastro h1,
+.container-login h1,
+.container-contato h1,
+.container-sobre h1,
+.container-recuperar-senha h1 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.container-cadastro label {
+.container-cadastro label,
+.container-login label,
+.container-contato label,
+.container-recuperar-senha label {
     display: block;
     margin-bottom: 5px;
 }
 
-.container-cadastro input[type="submit"] {
+.container-cadastro input[type="submit"],
+.container-login input[type="submit"],
+.container-contato button,
+.container-recuperar-senha input[type="submit"] {
     background-color: #3498db;
     color: white;
     padding: 10px 20px;
@@ -141,80 +125,19 @@ body {
     width: 100%;
 }
 
-.container-cadastro input[type="submit"]:hover {
+.container-cadastro input[type="submit"]:hover,
+.container-login input[type="submit"]:hover,
+.container-contato button:hover,
+.container-recuperar-senha input[type="submit"]:hover {
     background-color: #3300ff;
-}
-
-.container-login {
-    background-color: #000000; 
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    margin: 20px auto; 
-}
-
-.container-login h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.container-login label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.container-login input[type="submit"] {
-    background-color: #3498db; 
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-}
-
-.container-login input[type="submit"]:hover {
-    background-color: #3300ff; 
 }
 
 .container-cadastro input[type="text"],
 .container-cadastro input[type="email"],
 .container-cadastro input[type="password"],
 .container-login input[type="email"],
-.container-login input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none; 
-    border-bottom: 1px solid #ccc; 
-    border-radius: 5px; 
-    box-sizing: border-box;
-    background-color: black; 
-    color: rgb(56, 167, 0); 
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); 
-}
-
-.container-contato {
-    background-color: rgb(0, 0, 0);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-.container-contato h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.container-contato label {
-    display: block;
-    margin-bottom: 5px;
-}
-
+.container-login input[type="password"],
+.container-recuperar-senha input[type="email"],
 .container-contato input[type="text"],
 .container-contato input[type="email"],
 .container-contato textarea {
@@ -230,39 +153,45 @@ body {
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); 
 }
 
-.container-contato button {
-    background-color: #3e9a0099;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.container-cadastro input[type="text"]::placeholder,
+.container-cadastro input[type="email"]::placeholder,
+.container-cadastro input[type="password"]::placeholder,
+.container-login input[type="email"]::placeholder,
+.container-login input[type="password"]::placeholder,
+.container-recuperar-senha input[type="email"]::placeholder,
+.container-contato input[type="text"]::placeholder,
+.container-contato input[type="email"]::placeholder,
+.container-contato textarea::placeholder {
+    color: rgb(56, 167, 0);
+}
+
+.container-cadastro input[type="text"]:focus,
+.container-cadastro input[type="email"]:focus,
+.container-cadastro input[type="password"]:focus,
+.container-login input[type="email"]:focus,
+.container-login input[type="password"]:focus,
+.container-recuperar-senha input[type="email"]:focus,
+.container-contato input[type="text"]:focus,
+.container-contato input[type="email"]:focus,
+.container-contato textarea:focus {
+    outline: none;
+    border-bottom: 2px solid #3e9a00;
+}
+
+/* Estilo para o campo de data de nascimento */
+.container-cadastro input[type="date"] {
     width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none; 
+    border-bottom: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box;
+    background-color: rgb(95, 95, 95); /* Alterado o fundo para cinza escuro */
+    color: white; /* Alterado para branco */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); 
 }
 
-.container-contato button:hover {
-    background-color: #3300ff;
-}
-
-.container-sobre {
-    background-color: rgb(0, 0, 0);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-.container-sobre h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.container-sobre h2 {
-    color: #024e81;
-    margin-top: 20px;
-}
-
-.container-sobre p {
-    line-height: 1.6;
+.container-cadastro input[type="date"]::placeholder {
+    color: white; /* Alterado para branco */
 }

@@ -25,6 +25,7 @@
             "log" => require_once("./view/login.php"),
             "sob" => require_once("./view/sobre.php"),
             "cont" => require_once("./view/contato.php"),
+            "rec" => require_once("./view/recuperarSenha.php"),
             default => require_once("./view/404.php"),
         }
         ?>

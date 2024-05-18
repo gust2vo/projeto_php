@@ -7,6 +7,8 @@
             <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha" required>
 
+            <label for="recuperar"><a href="?p=rec">Recuperar Senha</a></label>
+
             <input type="submit" value="Entrar">
         </form>
     </div>
