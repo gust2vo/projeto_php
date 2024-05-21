@@ -4,7 +4,7 @@
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
 
-        <label for="nome">CPF:</label>
+        <label for="cpf">CPF:</label>
         <input type="text" id="nome" name="nome" required>
 
         <label for="email">Email:</label>
@@ -13,7 +13,7 @@
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" required>
 
-        <label for="nome">Data Nascimento</label>
+        <label for="data">Data Nascimento</label>
         <input type="date" id="nome" name="nome" required>
         
         <input type="submit" value="Cadastrar">

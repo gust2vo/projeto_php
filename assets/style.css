@@ -1,6 +1,17 @@
 body {
-    background-color: rgb(0, 0, 0); 
+    background-color: rgb(79, 79, 79); 
     color: white; 
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #444; /* Cor de fundo do cabeçalho */
+    padding: 10px; /* Espaçamento interno do cabeçalho */
+    width: 100%; /* Largura completa */
+    position: sticky; /* Fixa o cabeçalho no topo ao rolar */
+    top: 0; /* Cola o cabeçalho no topo */
+    box-sizing: border-box; /* Inclui padding e border na largura e altura total */
 }
 
 .container-home,
@@ -15,8 +26,8 @@ body {
     padding: 20px;
 }
 
-.header-home,
-.header-produto {
+.home-header,
+.product-header {
     text-align: center;
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
@@ -25,6 +36,11 @@ body {
 .anun {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.anun img {
+    max-width: 100%; /* Define a largura máxima da imagem como 100% do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
 }
 
 .produto-home,
@@ -68,6 +84,19 @@ body {
     margin-left: 10px; 
 }
 
+.menu li a,
+.footer-menu li a {
+    color: white; /* Cor dos links */
+    text-decoration: none; /* Remove sublinhado */
+    padding: 10px;
+    display: block; /* Faz o link ocupar toda a área do item da lista */
+}
+
+.menu li a:hover,
+.footer-menu li a:hover {
+    color: #3498db; /* Cor dos links ao passar o mouse */
+}
+
 .footer {
     position: fixed; 
     left: 0;
@@ -82,14 +111,22 @@ body {
     text-align: center; 
 }
 
+.container-login a[href="?p=rec"] {
+    color: rgb(5, 146, 206); /* Define a cor azul apenas para o link "Recuperar Senha" */
+}
+
+.container-login a[href="?p=rec"]:hover {
+    color: rgba(3, 137, 190, 0.737); /* Define um tom mais escuro para a cor do link "Recuperar Senha" quando o mouse passar sobre ele */
+}
+
 .container-cadastro,
 .container-login,
 .container-contato,
 .container-recuperar-senha {
-    background-color: #000000;
+    background-color: #6f6f6f;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.313);
     max-width: 400px;
     width: 100%;
     margin: 20px auto; 
@@ -116,7 +153,7 @@ body {
 .container-login input[type="submit"],
 .container-contato button,
 .container-recuperar-senha input[type="submit"] {
-    background-color: #3498db;
+    background-color: #0bdb00c8;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -129,7 +166,7 @@ body {
 .container-login input[type="submit"]:hover,
 .container-contato button:hover,
 .container-recuperar-senha input[type="submit"]:hover {
-    background-color: #3300ff;
+    background-color: #3bc603ba;
 }
 
 .container-cadastro input[type="text"],
@@ -138,6 +175,7 @@ body {
 .container-login input[type="email"],
 .container-login input[type="password"],
 .container-recuperar-senha input[type="email"],
+.container-recuperar-senha input[type="text"], /* Incluído o campo de CPF */
 .container-contato input[type="text"],
 .container-contato input[type="email"],
 .container-contato textarea {
@@ -148,9 +186,8 @@ body {
     border-bottom: 1px solid #ccc; 
     border-radius: 5px; 
     box-sizing: border-box;
-    background-color: black; 
-    color: rgb(56, 167, 0); 
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); 
+    background-color: rgba(255, 255, 255, 0.818); 
+    color: rgb(0, 0, 0); 
 }
 
 .container-cadastro input[type="text"]::placeholder,
@@ -159,6 +196,7 @@ body {
 .container-login input[type="email"]::placeholder,
 .container-login input[type="password"]::placeholder,
 .container-recuperar-senha input[type="email"]::placeholder,
+.container-recuperar-senha input[type="text"]::placeholder, /* Incluído o campo de CPF */
 .container-contato input[type="text"]::placeholder,
 .container-contato input[type="email"]::placeholder,
 .container-contato textarea::placeholder {
@@ -171,27 +209,35 @@ body {
 .container-login input[type="email"]:focus,
 .container-login input[type="password"]:focus,
 .container-recuperar-senha input[type="email"]:focus,
+.container-recuperar-senha input[type="text"]:focus, /* Incluído o campo de CPF */
 .container-contato input[type="text"]:focus,
 .container-contato input[type="email"]:focus,
 .container-contato textarea:focus {
     outline: none;
-    border-bottom: 2px solid #3e9a00;
+    border-bottom: 3px solid #000000;
 }
 
 /* Estilo para o campo de data de nascimento */
-.container-cadastro input[type="date"] {
+.container-cadastro input[type="date"],
+.container-recuperar-senha input[type="date"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: none; 
-    border-bottom: 1px solid #ccc; 
+    border-bottom: 1px solid #b1b1b100; 
     border-radius: 5px; 
     box-sizing: border-box;
-    background-color: rgb(95, 95, 95); /* Alterado o fundo para cinza escuro */
-    color: white; /* Alterado para branco */
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); 
+    background-color: rgba(177, 177, 177, 0.708); /* Alterado o fundo para cinza escuro */
+    color: rgb(0, 0, 0); /* Alterado para preto */
 }
 
-.container-cadastro input[type="date"]::placeholder {
+.container-cadastro input[type="date"]::placeholder,
+.container-recuperar-senha input[type="date"]::placeholder {
     color: white; /* Alterado para branco */
+}
+
+.container-cadastro input[type="date"]:focus,
+.container-recuperar-senha input[type="date"]:focus {
+    outline: none;
+    border-bottom: 3px solid #000000;
 }
