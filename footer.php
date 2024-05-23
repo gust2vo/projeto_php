@@ -4,7 +4,7 @@
         <li class="sob"><a href="?p=sob">Sobre</a></li>
         
     </ul>
-    <small class="copy">
+    <small class="copy copyright">
         Copyrhight &copy; <?= date("Y")?>
     </small>
 </footer>

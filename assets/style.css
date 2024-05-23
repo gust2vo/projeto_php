@@ -14,6 +14,66 @@ header {
     box-sizing: border-box; /* Inclui padding e border na largura e altura total */
 }
 
+/* Estilos para o contêiner "Contato" */
+.contato {
+    background-color: #6f6f6f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.313);
+    width: calc(50% - 10px); /* Distribui igualmente o espaço para os dois elementos */
+    margin-right: 10px; /* Adiciona espaçamento entre os contêineres */
+}
+
+/* Estilos para os elementos dentro do contêiner "Contato" */
+.contato h1 {
+    color: #fff; /* Cor do texto */
+    font-size: 24px; /* Tamanho da fonte */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+.contato form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contato label {
+    color: #fff; /* Cor do texto */
+    margin-bottom: 5px; /* Espaçamento inferior */
+}
+
+.contato input[type="text"],
+.contato input[type="email"],
+.contato textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none; 
+    border-bottom: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.818); 
+    color: #000; /* Cor do texto */
+}
+
+.contato textarea {
+    resize: vertical; /* Permite redimensionar verticalmente apenas */
+}
+
+.contato button {
+    background-color: #0bdb00c8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.contato button:hover {
+    background-color: #3bc603ba;
+}
+
+
 .container-home,
 .container-produto,
 .container-cadastro,
@@ -190,7 +250,7 @@ header {
     color: rgb(0, 0, 0); 
 }
 
-.container-cadastro input[type="text"]::placeholder,
+
 .container-cadastro input[type="email"]::placeholder,
 .container-cadastro input[type="password"]::placeholder,
 .container-login input[type="email"]::placeholder,
@@ -240,4 +300,11 @@ header {
 .container-recuperar-senha input[type="date"]:focus {
     outline: none;
     border-bottom: 3px solid #000000;
+}
+
+.footer .copy {
+    text-align: center; /* Isso centraliza o texto */
+    margin-top: 20px; /* Isso adiciona um espaço superior, ajuste conforme necessário */
+    color: #666; /* Cor do texto do copyright */
+    font-size: 14px; /* Tamanho da fonte */
 }

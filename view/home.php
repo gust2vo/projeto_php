@@ -1,6 +1,6 @@
 <div class="anuncio">
     <div class="anun">
-        <img class="img2" src="imgs/phpstore.jpeg" alt="Anuncio-Grande">
+        <img class="img2" src="imgs/home.jpg" alt="Anuncio-Grande">
      </div>
  </div>
 
