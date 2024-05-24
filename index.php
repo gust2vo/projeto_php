@@ -1,3 +1,10 @@
+<?php
+namespace App;
+require_once("./autoload.php");
+use App\controller\ClienteController as cliente;
+
+?>
+
 <!DOCTYPE html>
 <html lang="PT-BR">
 
@@ -16,11 +23,11 @@
     </header>
     <main>
         <?php
-        isset($_GET["p"]) ? $page = $_GET["p"] : $page = "home";
+        $page = $_GET["p"] ?? "home";
         match ($page) {
             "home" => require_once("./view/home.php"),
             "prod" => require_once("./view/produto.php"),
-            "cad" => require_once("./view/cadastrar.php"),
+            "cad" => cliente::cadastrar(),
             "carr" => require_once("./view/carrinho.php"),
             "log" => require_once("./view/login.php"),
             "sob" => require_once("./view/sobre.php"),
