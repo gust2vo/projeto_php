@@ -8,5 +8,4 @@
                 <label for="data">Data Nascimento</label>
                 <input type="date" id="nome" name="nome" required>
                 <input type="submit" value="Recuperar Senha">
-            </form>
-        </div>
+            </form

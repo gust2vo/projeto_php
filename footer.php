@@ -1,10 +1,13 @@
 <footer>
-    <ul class="footer-menu">
-        <li class="cont"><a href="?p=cont">Contato</a></li>
-        <li class="sob"><a href="?p=sob">Sobre</a></li>
-        
-    </ul>
-    <small class="copy copyright">
-        Copyrhight &copy; <?= date("Y")?>
-    </small>
+    <div class="footer-container">
+        <ul class="footer-menu">
+            <li class="menu-item"><a href="?p=cont">Contato</a></li>
+            <li class="menu-item"><a href="?p=sob">Sobre</a></li>
+        </ul>
+        <div class="copyright">
+            <small>&copy; <?= date("Y")?> Todos os direitos reservados</small>
+        </div>
+    </div>
 </footer>
+
+

@@ -1,65 +1,77 @@
 body {
-    background-color: rgb(79, 79, 79); 
-    color: white; 
+    background-color: rgb(79, 79, 79);
+    color: white;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #444; /* Cor de fundo do cabeçalho */
-    padding: 10px; /* Espaçamento interno do cabeçalho */
-    width: 100%; /* Largura completa */
-    position: sticky; /* Fixa o cabeçalho no topo ao rolar */
-    top: 0; /* Cola o cabeçalho no topo */
-    box-sizing: border-box; /* Inclui padding e border na largura e altura total */
+    background-color: #444;
+    padding: 10px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    box-sizing: border-box;
 }
 
-/* Estilos para o contêiner "Contato" */
-.contato {
+.contato,
+.container-cadastro,
+.container-login,
+.container-recuperar-senha {
     background-color: #6f6f6f;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.313);
-    width: calc(50% - 10px); /* Distribui igualmente o espaço para os dois elementos */
-    margin-right: 10px; /* Adiciona espaçamento entre os contêineres */
+    max-width: 400px;
+    width: 100%;
+    margin: 20px auto;
 }
 
-/* Estilos para os elementos dentro do contêiner "Contato" */
-.contato h1 {
-    color: #fff; /* Cor do texto */
-    font-size: 24px; /* Tamanho da fonte */
-    margin-bottom: 20px; /* Espaçamento inferior */
+.contato h1,
+.container-cadastro h1,
+.container-login h1,
+.container-recuperar-senha h1 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.contato form {
+.contato form,
+.container-cadastro form,
+.container-login form,
+.container-recuperar-senha form {
     display: flex;
     flex-direction: column;
 }
 
-.contato label {
-    color: #fff; /* Cor do texto */
-    margin-bottom: 5px; /* Espaçamento inferior */
+label {
+    color: #fff;
+    margin-bottom: 5px;
 }
 
-.contato input[type="text"],
-.contato input[type="email"],
-.contato textarea {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: none; 
-    border-bottom: 1px solid #ccc; 
-    border-radius: 5px; 
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px;
     box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.818); 
-    color: #000; /* Cor do texto */
+    background-color: rgba(255, 255, 255, 0.818);
+    color: #000;
 }
 
-.contato textarea {
-    resize: vertical; /* Permite redimensionar verticalmente apenas */
+textarea {
+    resize: vertical;
 }
 
-.contato button {
+button,
+input[type="submit"] {
     background-color: #0bdb00c8;
     color: white;
     padding: 10px 20px;
@@ -69,18 +81,13 @@ header {
     width: 100%;
 }
 
-.contato button:hover {
+button:hover,
+input[type="submit"]:hover {
     background-color: #3bc603ba;
 }
 
-
 .container-home,
-.container-produto,
-.container-cadastro,
-.container-login,
-.container-contato,
-.container-sobre,
-.container-recuperar-senha {
+.container-produto {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -99,8 +106,8 @@ header {
 }
 
 .anun img {
-    max-width: 100%; /* Define a largura máxima da imagem como 100% do contêiner */
-    height: auto; /* Mantém a proporção da imagem */
+    max-width: 100%;
+    height: auto;
 }
 
 .produto-home,
@@ -132,179 +139,140 @@ header {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu .prod {
-    margin-right: auto; 
+    margin-right: auto;
 }
 
 .menu li:not(.sob),
 .footer-menu li {
-    margin-left: 10px; 
+    margin-left: 10px;
 }
 
 .menu li a,
 .footer-menu li a {
-    color: white; /* Cor dos links */
-    text-decoration: none; /* Remove sublinhado */
+    color: white;
+    text-decoration: none;
     padding: 10px;
-    display: block; /* Faz o link ocupar toda a área do item da lista */
+    display: block;
 }
 
 .menu li a:hover,
 .footer-menu li a:hover {
-    color: #3498db; /* Cor dos links ao passar o mouse */
+    color: #3498db;
 }
 
 .footer {
-    position: fixed; 
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: #f2f2f2;
-    padding: 20px;
-    min-height: 100vh; 
+    padding: 10px;
+    text-align: center;
 }
 
 .footer .copy {
-    text-align: center; 
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
-.container-login a[href="?p=rec"] {
-    color: rgb(5, 146, 206); /* Define a cor azul apenas para o link "Recuperar Senha" */
-}
-
-.container-login a[href="?p=rec"]:hover {
-    color: rgba(3, 137, 190, 0.737); /* Define um tom mais escuro para a cor do link "Recuperar Senha" quando o mouse passar sobre ele */
-}
-
-.container-cadastro,
-.container-login,
-.container-contato,
-.container-recuperar-senha {
-    background-color: #6f6f6f;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.313);
-    max-width: 400px;
-    width: 100%;
-    margin: 20px auto; 
 }
 
-.container-cadastro h1,
-.container-login h1,
-.container-contato h1,
-.container-sobre h1,
-.container-recuperar-senha h1 {
-    text-align: center;
+.product-details,
+.order-summary,
+.checkout {
     margin-bottom: 20px;
 }
 
-.container-cadastro label,
-.container-login label,
-.container-contato label,
-.container-recuperar-senha label {
-    display: block;
-    margin-bottom: 5px;
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
-.container-cadastro input[type="submit"],
-.container-login input[type="submit"],
-.container-contato button,
-.container-recuperar-senha input[type="submit"] {
-    background-color: #0bdb00c8;
-    color: white;
+button {
     padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    width: 100%;
 }
 
-.container-cadastro input[type="submit"]:hover,
-.container-login input[type="submit"]:hover,
-.container-contato button:hover,
-.container-recuperar-senha input[type="submit"]:hover {
-    background-color: #3bc603ba;
+button:hover {
+    background-color: #0056b3;
 }
 
-.container-cadastro input[type="text"],
-.container-cadastro input[type="email"],
-.container-cadastro input[type="password"],
-.container-login input[type="email"],
-.container-login input[type="password"],
-.container-recuperar-senha input[type="email"],
-.container-recuperar-senha input[type="text"], /* Incluído o campo de CPF */
-.container-contato input[type="text"],
-.container-contato input[type="email"],
-.container-contato textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none; 
-    border-bottom: 1px solid #ccc; 
-    border-radius: 5px; 
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.818); 
-    color: rgb(0, 0, 0); 
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.footer-menu li {
+    margin: 0 10px;
+}
+
+.footer-menu li a {
+    color: #666;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.footer-menu li a:hover {
+    color: #3498db;
+}
+
+/* Estilos adicionais para a página Sobre */
+.container-sobre {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #5a5a5a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.container-sobre h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.container-sobre h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.container-sobre p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.container-sobre section {
+    margin-bottom: 20px;
 }
 
 
-.container-cadastro input[type="email"]::placeholder,
-.container-cadastro input[type="password"]::placeholder,
-.container-login input[type="email"]::placeholder,
-.container-login input[type="password"]::placeholder,
-.container-recuperar-senha input[type="email"]::placeholder,
-.container-recuperar-senha input[type="text"]::placeholder, /* Incluído o campo de CPF */
-.container-contato input[type="text"]::placeholder,
-.container-contato input[type="email"]::placeholder,
-.container-contato textarea::placeholder {
-    color: rgb(56, 167, 0);
-}
 
-.container-cadastro input[type="text"]:focus,
-.container-cadastro input[type="email"]:focus,
-.container-cadastro input[type="password"]:focus,
-.container-login input[type="email"]:focus,
-.container-login input[type="password"]:focus,
-.container-recuperar-senha input[type="email"]:focus,
-.container-recuperar-senha input[type="text"]:focus, /* Incluído o campo de CPF */
-.container-contato input[type="text"]:focus,
-.container-contato input[type="email"]:focus,
-.container-contato textarea:focus {
-    outline: none;
-    border-bottom: 3px solid #000000;
-}
 
-/* Estilo para o campo de data de nascimento */
-.container-cadastro input[type="date"],
-.container-recuperar-senha input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none; 
-    border-bottom: 1px solid #b1b1b100; 
-    border-radius: 5px; 
-    box-sizing: border-box;
-    background-color: rgba(177, 177, 177, 0.708); /* Alterado o fundo para cinza escuro */
-    color: rgb(0, 0, 0); /* Alterado para preto */
-}
-
-.container-cadastro input[type="date"]::placeholder,
-.container-recuperar-senha input[type="date"]::placeholder {
-    color: white; /* Alterado para branco */
-}
-
-.container-cadastro input[type="date"]:focus,
-.container-recuperar-senha input[type="date"]:focus {
-    outline: none;
-    border-bottom: 3px solid #000000;
-}
-
-.footer .copy {
-    text-align: center; /* Isso centraliza o texto */
-    margin-top: 20px; /* Isso adiciona um espaço superior, ajuste conforme necessário */
-    color: #666; /* Cor do texto do copyright */
-    font-size: 14px; /* Tamanho da fonte */
-}
