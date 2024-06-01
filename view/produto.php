@@ -15,7 +15,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>
@@ -25,7 +25,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>
@@ -35,7 +35,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>
@@ -45,7 +45,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>
@@ -55,7 +55,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>
@@ -65,7 +65,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>
@@ -75,7 +75,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>
@@ -85,7 +85,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>
@@ -95,7 +95,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>
@@ -105,7 +105,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>
@@ -115,7 +115,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>
@@ -125,7 +125,7 @@
                     <div class="produto-item">
                         <div class="div1">
                             <a href="detalhes_produto.php">
-                                <img class="img" src="./imgs/a.jpg" alt="Descricao imagem">
+                                <img class="img" src="./imgs/vans.jpg" alt="Descricao imagem">
                                 <p>Produto A</p>
                                 <p>R$399,90</p>
                             </a>

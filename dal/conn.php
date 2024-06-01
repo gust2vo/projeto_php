@@ -14,7 +14,7 @@ abstract class Conn {
     public static function getConn() {
         try {
             if (!isset(self::$conn)) {
-                self::$conn = new PDO("mysql:host=" . self::$host . "; dbname=" . self::$dbname, self::$login, self::$senha);
+                self::$conn = new PDO("mysql:host=" . self::$host . ";dbname=" . self::$dbname, self::$login, self::$senha);
             }
             return self::$conn;
         } catch (PDOException $e) {

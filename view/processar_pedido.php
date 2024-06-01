@@ -10,9 +10,7 @@
     <div class="container">
         <h2>Carrinho de Compras</h2>
         <?php
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+        session_start();
         if (isset($_SESSION['msg'])) {
             echo "<p>" . $_SESSION['msg'] . "</p>";
             unset($_SESSION['msg']);
@@ -36,7 +34,7 @@
         </div>
         <div class="checkout">
             <h2>Checkout</h2>
-            <form action="index.php?p=finalizar" method="post">
+            <form action="/view/processar_pedido.php" method="post">
                 <!-- Campos para os dados cadastrais do cliente -->
                 <label for="endereco">Endereço de Entrega:</label>
                 <input type="text" id="cep" name="cep" placeholder="CEP" required pattern="\d{5}-\d{3}" title="Digite um CEP válido no formato 12345-678.">
@@ -90,3 +88,7 @@
     </script>
 </body>
 </html>
+
+
+
+

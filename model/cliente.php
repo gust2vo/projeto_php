@@ -2,14 +2,11 @@
 namespace App\model;
 
 class Cliente {
-    private $id;
-    private $nome;
-    private $cpf;
-    private $email;
-    private $senha;
-    private $dataNascimento;
+    private $id, $nome, $cpf, $email, $senha, $dataNascimento;
 
-    public function iniciar($id, $nome, $cpf, $email, $senha, $dataNascimento) {
+    public function __construct(){}
+
+    public function iniciar($id = "", $nome = "", $cpf = "", $email = "", $senha = "", $dataNascimento = "") {
         $this->id = $id;
         $this->nome = $nome;
         $this->cpf = $cpf;
@@ -18,56 +15,24 @@ class Cliente {
         $this->dataNascimento = $dataNascimento;
     }
 
-    // Getters
-    public function getId() {
-        return $this->id;
+    public static function pegarCliente($id = null, $nome = null, $sobrenome = null, $ddd = null, $telefone = null){
+        $novoCliente = new static();
+        $novoCliente->id = $id;
+        $novoCliente->nome = $nome;
+        $novoCliente->sobrenome = $sobrenome;
+        $novoCliente->ddd = $ddd;
+        $novoCliente->telefone = $telefone;
+        return $novoCliente;
     }
 
-    public function getNome() {
-        return $this->nome;
+    public function __get($atributo){
+        return $this->$atributo;
     }
 
-    public function getCpf() {
-        return $this->cpf;
+    public function __set($atributo, $valor){
+        $this->$atributo = $valor;
     }
 
-    public function getEmail() {
-        return $this->email;
-    }
-
-    public function getSenha() {
-        return $this->senha;
-    }
-
-    public function getDataNascimento() {
-        return $this->dataNascimento;
-    }
-
-    // Setters
-    public function setId($id) {
-        $this->id = $id;
-    }
-
-    public function setNome($nome) {
-        $this->nome = $nome;
-    }
-
-    public function setCpf($cpf) {
-        $this->cpf = $cpf;
-    }
-
-    public function setEmail($email) {
-        $this->email = $email;
-    }
-
-    public function setSenha($senha) {
-        $this->senha = $senha;
-    }
-
-    public function setDataNascimento($dataNascimento) {
-        $this->dataNascimento = $dataNascimento;
-    }
+    
 }
-?>
-
 

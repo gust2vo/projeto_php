@@ -1,13 +1,6 @@
-<?php
-$current_page = isset($_GET["p"]) ? $_GET["p"] : "home";
-?>
+<a href="./?p=home">Home</a>
+<a href="./?p=cad">Cadastrar</a>
+<a href="./?p=log">Login</a>
+<a href="./?p=car">Carrinho</a>
+<a href="./?p=rec">Recuperar Senha</a>
 
-<ul class="menu">
-    
-        <li class="home"><a href="?p=home">Home</a></li>
-
-        <li class="prod"><a href="?p=prod">Produtos</a></li>
-    <li><a href="?p=cad">Cadastrar</a></li>
-    <li><a href="?p=log">Login</a></li>
-    <li><a href="?p=carr">Carrinho</a></li>
-</ul>
