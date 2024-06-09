@@ -1,6 +1,6 @@
 <div class="container-contato contato">
     <h1>Entre em Contato</h1>
-    <form action="enviar_contato.php" method="POST">
+    <form action="index.php" method="POST">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
 

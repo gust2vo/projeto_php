@@ -1,7 +1,6 @@
 <?php
 namespace App\dal;
 
-
 use App\model\Cliente;
 use Exception;
 use PDOException;
@@ -12,8 +11,8 @@ abstract class ClienteDao {
     public static function cadastrar(Cliente $cliente) {
         try {
             $pdo = Conn::getConn();
-            $sql = $pdo->prepare("INSERT INTO clientes VALUES (null, ?,?,?,?,?)");
-            $sql-> execute([$cliente->__get("nome"), $cliente->__get("cpf"), $cliente->__get("email"), $cliente->__get("senha"), $cliente->__get("dataNascimento")]);
+            $sql = $pdo->prepare("INSERT INTO clientes VALUES (null, ?,?,?,?,?,?)");
+            $sql-> execute([$cliente->__get("nome"), $cliente->__get("cpf"), $cliente->__get("email"), $cliente->__get("senha"), $cliente->__get("dataNascimento"), $cliente->__get("grupo")]);
         }catch (PDOException $e) {
             throw new Exception("Erro ao salvar no banco de dados");
         }catch (Exception $e){
@@ -99,7 +98,30 @@ abstract class ClienteDao {
         }
     }
     
+    public static function listar(){
+        try {
+            $pdo = Conn::getConn();
+            $sql = $pdo->prepare("SELECT * FROM clientes");
+            $sql->execute();
+
+            return $sql->fetchAll(PDO::FETCH_CLASS, Cliente::class);
+        } catch (Exception $e) {
+            throw new Exception("Ocorreu um erro inesperado " . $e->getMessage() . $e->getCode());
+        }
+    }
     
-    
+    public static function deletar(int $id) {
+        try {
+            $pdo = Conn::getConn();
+            $sql = $pdo->prepare("DELETE FROM clientes WHERE id_cliente=?");
+            $sql->execute([$id]);
+
+            if ($sql->rowCount() !== 1) {
+                throw new Exception("Erro ao deletar o cliente.");
+            }
+        } catch (PDOException $e) {
+            throw new Exception("Ocorreu um erro inesperado " . $e->getMessage() . $e->getCode());
+        }
+    }
 }
 

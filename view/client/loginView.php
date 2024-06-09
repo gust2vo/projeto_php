@@ -1,5 +1,5 @@
 <?php
-namespace App\view;
+namespace App\view\client;
 
 class LoginView {
     public static function formularioLogin($msg = null) {
@@ -27,4 +27,5 @@ class LoginView {
         <?php
     }
 }
+
 ?>

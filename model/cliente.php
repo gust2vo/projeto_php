@@ -2,27 +2,18 @@
 namespace App\model;
 
 class Cliente {
-    private $id, $nome, $cpf, $email, $senha, $dataNascimento;
+    private $id_cliente, $nome, $cpf, $email, $senha, $dataNascimento, $grupo;
 
     public function __construct(){}
 
-    public function iniciar($id = "", $nome = "", $cpf = "", $email = "", $senha = "", $dataNascimento = "") {
-        $this->id = $id;
+    public function iniciar($id_cliente = "", $nome = "", $cpf = "", $email = "", $senha = "", $dataNascimento = "", $grupo = 0) {
+        $this->id_cliente = $id_cliente;
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->email = $email;
         $this->senha = $senha;
         $this->dataNascimento = $dataNascimento;
-    }
-
-    public static function pegarCliente($id = null, $nome = null, $sobrenome = null, $ddd = null, $telefone = null){
-        $novoCliente = new static();
-        $novoCliente->id = $id;
-        $novoCliente->nome = $nome;
-        $novoCliente->sobrenome = $sobrenome;
-        $novoCliente->ddd = $ddd;
-        $novoCliente->telefone = $telefone;
-        return $novoCliente;
+        $this->grupo = $grupo;
     }
 
     public function __get($atributo){
@@ -32,7 +23,6 @@ class Cliente {
     public function __set($atributo, $valor){
         $this->$atributo = $valor;
     }
-
-    
 }
+
 

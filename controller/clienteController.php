@@ -1,12 +1,15 @@
 <?php
 namespace App\controller;
+require_once("./config.php");
 
 use App\util\Functions as Util;
 use App\model\Cliente;
 use App\dal\ClienteDao;
-use App\view\ClienteView;
-use App\view\LoginView;
-use App\View\RecuperarSenhaView;
+use App\view\client\ClienteView;
+use App\view\client\LoginView;
+use App\View\client\RecuperarSenhaView;
+use App\admin\view\listarClientes;
+use App\admin\view\DeletarCliente;
 
 use \Exception;
 
@@ -20,27 +23,31 @@ abstract class ClienteController {
             $email = Util::prepararTexto($_POST["email"]);
             $senha = Util::prepararTexto($_POST["senha"]);
             $dataNascimento = Util::prepararTexto($_POST["dataNascimento"]);
-
+            $grupo = 0;
+    
             try {
-                // Validação de CPF
+                $clienteExistente = ClienteDao::buscarPorEmail($email);
+                if ($clienteExistente) {
+                    throw new Exception("Este email já está cadastrado.");
+                }
+
                 if (!Util::validarCpf($cpf)) {
                     throw new Exception("Cpf inválido ou já existente");
                 }
 
-                // Validação de Email
                 if (!Util::validarEmail($email)) {
                     throw new Exception("Email inválido");
                 }
 
-                // Validação de idade
                 if (!Util::verificarIdade($dataNascimento)) {
                     throw new Exception("Você deve ter pelo menos 18 anos para se cadastrar");
                 }
 
-                // Se todas as validações passarem, tenta cadastrar o cliente
+                $senhaCriptografada = gerarHashSenha($senha);
+    
                 $cliente = new Cliente();
-                $cliente->iniciar("", $nome, Util::validarCpf($cpf), $email, $senha, $dataNascimento);
-
+                $cliente->iniciar("", $nome, Util::validarCpf($cpf), $email, $senhaCriptografada, $dataNascimento, $grupo);
+    
                 ClienteDao::cadastrar($cliente);
                 self::$msg = "Cadastro realizado com sucesso!";
             } catch (Exception $e) {
@@ -52,62 +59,78 @@ abstract class ClienteController {
 
     public static function login() {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_POST["senha"])) {
+        
             $email = Util::prepararTexto($_POST["email"]);
             $senha = Util::prepararTexto($_POST["senha"]);
-
+        
             try {
-                // Busca o cliente pelo email
                 $cliente = ClienteDao::buscarPorEmail($email);
+        
                 if ($cliente) {
-                    // Verifica se a senha está correta
-                    if ($cliente->senha === $senha) {
-                        // Inicia a sessão do usuário
-                        session_start();
-                        $_SESSION["cliente_id"] = $cliente->id;
-                        // Define mensagem de sucesso
-                        self::$msg = "Login bem-sucedido!";
-                        // Redireciona para a página inicial
-                        header("Location: index.php");
-                        exit();
+                    if (verificarSenha($senha, $cliente->senha)) {
+                        $_SESSION['user'] = $cliente->email;
+                        $_SESSION['grupo'] = $cliente->grupo;
+                        setcookie("nome_usuario", $cliente->nome, time() + 3600, "/");
+        
+                        if ($cliente->grupo == 1) {
+                            header("Location: ./admin/index.php");
+                            exit();
+                            } else {
+                            header("Location: ./index.php");
+                            exit();
+                            }
+                        } else {
+                            throw new Exception("Senha incorreta");
+                        }
                     } else {
-                        throw new Exception("Senha incorreta");
+                        throw new Exception("Email não encontrado");
                     }
-                } else {
-                    throw new Exception("Email não encontrado");
+                } catch (Exception $e) {
+                    self::$msg = "Erro ao fazer login: " . $e->getMessage();
                 }
-            } catch (Exception $e) {
-                self::$msg = "Erro ao fazer login: " . $e->getMessage();
             }
+            LoginView::formularioLogin(self::$msg);
         }
-        LoginView::formularioLogin(self::$msg);
-    }
 
     public static function recuperarSenha() {
-        $msg = null;
-        
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["cpf"]) && isset($_POST["dataNascimento"]) && isset($_POST["novaSenha"])) {
-            // Remover os hífens do CPF e da data de nascimento
             $cpf = str_replace('-', '', Util::prepararTexto($_POST["cpf"]));
             $dataNascimento = str_replace('-', '', Util::prepararTexto($_POST["dataNascimento"]));
             $novaSenha = Util::prepararTexto($_POST["novaSenha"]);
-    
+        
             try {
-                // Verifica se as informações fornecidas são válidas
                 $cliente = ClienteDao::buscarPorCpfDataNascimento($cpf, $dataNascimento);
                 if ($cliente) {
-                    // Atualiza apenas a senha do cliente se o CPF e a data de nascimento existirem
-                    $cliente->senha = $novaSenha;
-                    ClienteDao::atualizarSenha($cpf, $novaSenha);
-                    $msg = "Senha recuperada com sucesso!";
+                    $novaSenhaCriptografada = gerarHashSenha($novaSenha);
+                    $cliente->senha = $novaSenhaCriptografada;
+                    ClienteDao::atualizarSenha($cliente->cpf, $cliente->senha);
+                    self::$msg = "Senha atualizada com sucesso!";
                 } else {
-                    throw new Exception("CPF ou data de nascimento inválidos.");
+                    throw new Exception("CPF ou Data de Nascimento inválidos");
                 }
             } catch (Exception $e) {
-                $msg = "Erro ao recuperar a senha: " . $e->getMessage();
+                self::$msg = "Erro ao recuperar senha: " . $e->getMessage();
             }
         }
-        RecuperarSenhaView::formularioRecuperarSenha($msg);
+        RecuperarSenhaView::formularioRecuperarSenha(self::$msg);
     }
-    
+
+    public static function deletarCliente(){
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
+            $id = Util::prepararTexto($_POST["id"]);
+            try {
+                ClienteDao::deletar($id);
+                self::$msg = "Cliente deletado com sucesso!";
+            } catch (Exception $e) {
+                self::$msg = "Erro ao deletar Cliente: " . $e->getMessage();
+            }
+        } 
+        DeletarCliente::formulario(self::$msg);
+    }
+
+    public static function listar(){
+        $clientes = ClienteDao::listar();
+        ListarClientes::mostrarClientes();
+    }
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-spl_autoload_register(function($classe){
+spl_autoload_register(function ($classe) {
     $classe = str_replace("App\\", "", $classe);
 
     $classe = str_replace("\\", DIRECTORY_SEPARATOR, $classe);
@@ -13,4 +13,3 @@ spl_autoload_register(function($classe){
     }
     return false;
 });
-

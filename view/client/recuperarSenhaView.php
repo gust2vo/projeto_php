@@ -1,5 +1,5 @@
 <?php
-namespace App\View;
+namespace App\View\client;
 
 class RecuperarSenhaView {
     public static function formularioRecuperarSenha($msg = null) {
