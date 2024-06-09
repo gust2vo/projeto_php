@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Tempo de geração: 08/06/2024 às 21:48
+-- Tempo de geração: 09/06/2024 às 23:42
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `projeto`
+-- Banco de dados: `loja_roupa`
 --
 
 -- --------------------------------------------------------
@@ -42,10 +42,11 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id_cliente`, `nome`, `cpf`, `email`, `senha`, `dataNascimento`, `grupo`) VALUES
-(1, 'admin', '85236974155', 'admin@admin.com', 'admin55', '2000-05-22', 1),
-(13, 'asd', '12345678911', 'asd@gmai.com', '123', '2000-12-12', 0),
-(14, 'asd', '12345678912', 'asd@gmai.com', '123', '2000-12-12', 0),
-(15, 'asd', '12312312333', 'asd@gmai.com', '123', '0012-12-12', 0);
+(1, 'admin', '78952631455', 'admin@admin.com', '$2y$10$8lgkEOXEE1E23jsG4nSIAeZgEEu8pcBcUqKmYyoHMPckF7sMo4vwG', '0012-12-12', 1),
+(28, 'Gustavo', '45678912355', 'asd@gmail.com', '$2y$10$KHSjwQATjhJfShtF6zEaduSgh6ZklWW9o4uNh/Tcs0mF73g5UZ8LC', '0012-12-12', 0),
+(29, 'Joao', '37518465111', 'asdasd@asdasd.com', '$2y$10$zLcYUMyxOgRxDim2ao8KYeCvnFZnY7FZnFdxZ.0fLeIfdFty8Rs0u', '0012-12-12', 0),
+(30, 'teste', '75395175322', 'abc@abc.com', '$2y$10$/ovDEEhpzI6sw7Vwxk7GNu6IWDW02fQante5RrEq2g5xWTz3b1Kdi', '0012-12-12', 0),
+(31, 'Rogerio', '79531682544', 'asd@123.com', '$2y$10$nUq3IDhADluD0gtdOMa1EeILhpE5be1tsPkhziICOxO99zs21tHgK', '0012-12-12', 0);
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,9 @@ CREATE TABLE `fornecedores` (
 --
 
 INSERT INTO `fornecedores` (`id_fornecedor`, `nome`, `quantidade_solicitada`, `quantidade_recebida`) VALUES
-(2, 'fornecedor', 2, 1);
+(2, 'Venus', 25, 25),
+(4, 'Aurora', 40, 35),
+(5, 'Rebirth', 33, 33);
 
 -- --------------------------------------------------------
 
@@ -85,12 +88,12 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id_produto`, `nome`, `preco`, `quantidade`) VALUES
-(3, 'teste 2', 'asd', 0),
-(4, 'teste', '10', 7),
-(5, 'teste2', '0', 9),
-(6, 'novo', '1', 0),
-(7, 'novo1', '2', 0),
-(8, 'teste', '1', 0);
+(8, 'Camisa', '50.00', 48),
+(9, 'Tenis', '200.00', 5),
+(10, 'Calça', '90.00', 5),
+(11, 'Bermuda', '90.00', 4),
+(12, 'Terno', '400.00', 47),
+(14, 'Chinelo Infantil', '60.00', 145);
 
 --
 -- Índices para tabelas despejadas
@@ -122,19 +125,19 @@ ALTER TABLE `produtos`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `fornecedores`
 --
 ALTER TABLE `fornecedores`
-  MODIFY `id_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
