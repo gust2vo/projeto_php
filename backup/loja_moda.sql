@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Tempo de geração: 09/06/2024 às 23:42
+-- Tempo de geração: 09/06/2024 às 23:52
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `loja_roupa`
+-- Banco de dados: `loja_moda`
 --
 
 -- --------------------------------------------------------
@@ -88,7 +88,7 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id_produto`, `nome`, `preco`, `quantidade`) VALUES
-(8, 'Camisa', '50.00', 48),
+(8, 'Camisa', '50.00', 47),
 (9, 'Tenis', '200.00', 5),
 (10, 'Calça', '90.00', 5),
 (11, 'Bermuda', '90.00', 4),

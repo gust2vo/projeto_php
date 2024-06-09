@@ -7,7 +7,7 @@ use \PDOException;
 abstract class Conn {
     private static $conn;
     private static $host = "localhost:3307";
-    private static $dbname = "loja_roupa";
+    private static $dbname = "loja_moda";
     private static $login = "root";
     private static $senha = "";
 
