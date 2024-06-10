@@ -1,8 +1,10 @@
 <?php
 namespace App\view\client;
+require_once("./config.php");
 
 class LoginView {
     public static function formularioLogin($msg = null) {
+        $tokenCSRF = gerarTokenCSRF();
         ?>
         <?php if (isset($msg)) : ?>
             <div class="mensagem">
@@ -13,6 +15,7 @@ class LoginView {
         <div class="container-login">
             <h1>Login</h1>
             <form action="?p=log" method="post">
+                <input type="hidden" name="csrf_token" value="<?= $tokenCSRF ?>">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
 

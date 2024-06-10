@@ -1,9 +1,9 @@
 <?php
 namespace App\View\client;
-
+require_once("./config.php");
 class ClienteView {
     public static function formulario($msg = null) {
-
+        $tokenCSRF = gerarTokenCSRF();
         ?>
         <?php if (isset($msg)): ?>
             <div class="sucesso">
@@ -12,7 +12,7 @@ class ClienteView {
             </div>
         <?php endif; ?>
         <form action="?p=cad" method="post">
-
+        <input type="hidden" name="csrf_token" value="<?= $tokenCSRF ?>">
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="nome" required>
 

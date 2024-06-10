@@ -17,7 +17,7 @@ abstract class ClienteController {
     private static $msg = null;
 
     public static function cadastrar() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nome"])) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && verificarTokenCSRF($_POST["csrf_token"]) && isset($_POST["nome"])) {
             $nome = Util::prepararTexto($_POST["nome"]);
             $cpf = Util::prepararTexto($_POST["cpf"]);
             $email = Util::prepararTexto($_POST["email"]);
@@ -58,7 +58,7 @@ abstract class ClienteController {
     }
 
     public static function login() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_POST["senha"])) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && verificarTokenCSRF($_POST["csrf_token"]) && isset($_POST["email"]) && isset($_POST["senha"])) {
         
             $email = Util::prepararTexto($_POST["email"]);
             $senha = Util::prepararTexto($_POST["senha"]);
@@ -93,7 +93,7 @@ abstract class ClienteController {
         }
 
     public static function recuperarSenha() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["cpf"]) && isset($_POST["dataNascimento"]) && isset($_POST["novaSenha"])) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && verificarTokenCSRF($_POST["csrf_token"]) && isset($_POST["cpf"]) && isset($_POST["dataNascimento"]) && isset($_POST["novaSenha"])) {
             $cpf = str_replace('-', '', Util::prepararTexto($_POST["cpf"]));
             $dataNascimento = str_replace('-', '', Util::prepararTexto($_POST["dataNascimento"]));
             $novaSenha = Util::prepararTexto($_POST["novaSenha"]);

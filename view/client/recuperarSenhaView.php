@@ -1,8 +1,9 @@
 <?php
 namespace App\View\client;
-
+require_once("./config.php");
 class RecuperarSenhaView {
     public static function formularioRecuperarSenha($msg = null) {
+        $tokenCSRF = gerarTokenCSRF();
         ?>
         <?php if (isset($msg)) : ?>
             <div class="mensagem">
@@ -13,6 +14,7 @@ class RecuperarSenhaView {
         <div class="container-recuperar-senha">
             <h1>Recuperar Senha</h1>
             <form action="?p=rec" method="POST">
+            <input type="hidden" name="csrf_token" value="<?= $tokenCSRF ?>">
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpf" name="cpf" required>
                 
